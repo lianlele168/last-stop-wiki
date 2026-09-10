@@ -1,0 +1,117 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Consolas', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #050811;
+  color: #f3f4f6;
+  font-family: var(--font-sans);
+  background-image:
+    radial-gradient(ellipse at 15% 0%, rgba(245, 158, 11, 0.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 100%, rgba(220, 38, 38, 0.10) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 30%, rgba(16, 185, 129, 0.06) 0%, transparent 70%),
+    radial-gradient(circle at 50% 50%, rgba(5, 8, 17, 0.8) 0%, #050811 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: rgba(10, 17, 34, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 10px 30px -10px rgba(245, 158, 11, 0.25);
+  transform: translateY(-2px);
+}
+
+.glass-card-static {
+  background: rgba(10, 17, 34, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+}
+
+.glass-panel {
+  background: rgba(8, 14, 28, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* Section Title Styling */
+.section-title {
+  @apply text-2xl md:text-3xl font-extrabold text-white mb-6 flex items-center gap-3 tracking-tight;
+}
+
+.section-subtitle {
+  @apply text-gray-400 text-sm md:text-base -mt-4 mb-8 max-w-2xl;
+}
+
+/* Tier Badges */
+.tier-s { @apply bg-gradient-to-r from-amber-400 to-yellow-300 text-black font-extrabold shadow-sm; }
+.tier-a { @apply bg-gradient-to-r from-emerald-500 to-teal-400 text-black font-extrabold shadow-sm; }
+.tier-b { @apply bg-gradient-to-r from-blue-500 to-cyan-400 text-white font-extrabold shadow-sm; }
+.tier-c { @apply bg-gradient-to-r from-orange-500 to-amber-600 text-white font-extrabold shadow-sm; }
+.tier-d { @apply bg-gradient-to-r from-red-600 to-rose-700 text-white font-extrabold shadow-sm; }
+
+/* Threat Badges */
+.threat-boss    { @apply bg-rose-950/90 text-rose-300 border border-rose-500/60 shadow-glow-red font-bold px-2.5 py-0.5 rounded text-xs inline-flex items-center gap-1; }
+.threat-extreme { @apply bg-red-950/80 text-red-300 border border-red-600/50 font-bold px-2.5 py-0.5 rounded text-xs inline-flex items-center gap-1; }
+.threat-high    { @apply bg-amber-950/80 text-amber-300 border border-amber-600/50 font-bold px-2.5 py-0.5 rounded text-xs inline-flex items-center gap-1; }
+.threat-medium  { @apply bg-yellow-950/80 text-yellow-300 border border-yellow-600/50 font-bold px-2.5 py-0.5 rounded text-xs inline-flex items-center gap-1; }
+.threat-low     { @apply bg-cyan-950/80 text-cyan-300 border border-cyan-600/50 font-bold px-2.5 py-0.5 rounded text-xs inline-flex items-center gap-1; }
+
+/* Status Badges */
+.badge-active   { @apply bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5; }
+.badge-expired  { @apply bg-gray-800/60 text-gray-400 border border-gray-700/50 px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5; }
+.badge-new      { @apply bg-amber-500/10 text-amber-400 border border-amber-500/30 px-3 py-1 rounded-full text-xs font-semibold flex items-center gap-1.5; }
+
+/* Buttons */
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-black font-extrabold rounded-xl transition-all duration-200 shadow-glow hover:shadow-glow-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-gray-800/80 hover:bg-gray-700/80 text-white font-bold rounded-xl border border-gray-700/80 hover:border-amber-500/40 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer;
+}
+
+.btn-copy {
+  @apply inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold bg-amber-500 hover:bg-amber-400 text-black transition-all shadow-sm active:scale-95 cursor-pointer;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050811;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b;
+}

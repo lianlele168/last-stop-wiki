@@ -1,0 +1,21 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="8" fill="#050811"/>
+  <rect x="1" y="1" width="30" height="30" rx="7" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-opacity="0.4"/>
+  <!-- Armored Bus Icon -->
+  <rect x="6" y="8" width="20" height="13" rx="3" fill="url(#bg)"/>
+  <!-- Windows -->
+  <rect x="8" y="10" width="4" height="4" rx="1" fill="#050811"/>
+  <rect x="14" y="10" width="4" height="4" rx="1" fill="#050811"/>
+  <rect x="20" y="10" width="4" height="4" rx="1" fill="#050811"/>
+  <!-- Headlights -->
+  <circle cx="7" cy="18" r="1.5" fill="#fef08a"/>
+  <!-- Wheels -->
+  <circle cx="10" cy="22" r="2.5" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/>
+  <circle cx="22" cy="22" r="2.5" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/>
+</svg>
