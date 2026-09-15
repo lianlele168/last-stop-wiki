@@ -14,8 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/zombies-bestiary/', priority: 0.8, changeFrequency: 'weekly' as const },
     { path: '/beginner-guide/', priority: 0.8, changeFrequency: 'monthly' as const },
     { path: '/about/', priority: 0.4, changeFrequency: 'monthly' as const },
-    { path: '/privacy-policy/', priority: 0.3, changeFrequency: 'yearly' as const },
-  ];
+    ];
 
   return routes.map((route) => ({
     url: `${BASE_URL}${route.path}`,
