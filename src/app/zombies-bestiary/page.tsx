@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -57,6 +57,24 @@ export default function ZombiesBestiaryPage() {
         <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
           From shambling suburban walkers to the colossal 28,000 HP Final Overlord blocking the 95,000m bunker, memorize attack patterns, spawn ranges, and counter strategies.
         </p>
+      </div>
+
+      {/* Infected Horde Screenshot Showcase */}
+      <div className="relative rounded-2xl overflow-hidden border border-red-500/30 shadow-2xl bg-slate-900/60 aspect-video max-w-4xl mx-auto my-6">
+        <img
+          src="/images/last-stop-horde.webp"
+          alt="Roblox Last Stop Infected Horde and Zombie Boss Encounter"
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+        <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-transparent p-4 flex items-center justify-between">
+          <div className="text-xs sm:text-sm text-slate-200 font-medium">
+            <span className="text-red-400 font-bold">Biohazard Horde</span> — Mutation wave patterns & Overlord boss suppression tactics
+          </div>
+          <span className="px-2.5 py-1 bg-red-500/20 text-red-300 text-[11px] rounded-lg border border-red-500/30 font-mono">
+            Threat Level: Extreme
+          </span>
+        </div>
       </div>
 
       {/* Filter Buttons */}

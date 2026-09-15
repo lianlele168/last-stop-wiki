@@ -1,12 +1,19 @@
-﻿import React from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Bus, Flame, Gift, Award, Shield, Wrench, Skull, BookOpen, ArrowRight, CheckCircle2, ChevronRight, Gauge, Radio, ShieldCheck } from 'lucide-react';
 import { GAME_INFO, CLASSES_DATA, CODES_LIST, FAQS } from '@/data/gameData';
+import AuthorCard from '@/components/AuthorCard';
 
 export default function HomePage() {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    dateModified: '2026-09-15',
+    author: {
+      '@type': 'Person',
+      name: 'Marcus "Axel" Vance',
+      jobTitle: 'Lead Survival Mechanic & Convoy Veteran',
+    },
     mainEntity: FAQS.map((faq) => ({
       '@type': 'Question',
       name: faq.q,
@@ -44,6 +51,16 @@ export default function HomePage() {
               <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-2xl">
                 The armored bus does not wait. Refuel the furnace, scavenge abandoned towns, unlock S-Tier classes, and conquer the <span className="text-amber-400 font-bold font-mono">95,000-meter</span> wasteland before the infected horde breaches your defenses.
               </p>
+
+              {/* Author Card */}
+              <AuthorCard
+                authorName="Marcus 'Axel' Vance"
+                role="Lead Survival Mechanic & 95k-Meter Convoy Veteran"
+                experience="150+ Full Bus Runs & All S-Tier Classes Maxed"
+                patchVersion="Beta Update Verified"
+                lastUpdated="September 2026"
+                editorialNote="All fuel consumption curves, zombie DPS scaling, bus armor upgrade tiers, and furnace burn times are benchmarked in 95k-meter convoy runs."
+              />
 
               {/* Action Buttons */}
               <div className="flex flex-wrap items-center gap-3 pt-2">
@@ -145,7 +162,24 @@ export default function HomePage() {
 
               </div>
             </div>
+          </div>
 
+          {/* Bus Convoy Screenshot Showcase */}
+          <div className="relative rounded-2xl overflow-hidden border border-amber-500/30 shadow-2xl bg-slate-900/60 aspect-video max-w-4xl mx-auto mt-10">
+            <img
+              src="/images/last-stop-hero.webp"
+              alt="Roblox Last Stop Armored Survival Bus 95,000m Wasteland Journey"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-transparent p-4 flex items-center justify-between">
+              <div className="text-xs sm:text-sm text-slate-200 font-medium">
+                <span className="text-amber-400 font-bold">Armored Convoy</span> — The 95,000m wasteland journey & furnace refuel checkpoint
+              </div>
+              <span className="px-2.5 py-1 bg-amber-500/20 text-amber-300 text-[11px] rounded-lg border border-amber-500/30 font-mono">
+                Route Distance: 95,000m
+              </span>
+            </div>
           </div>
         </div>
       </section>
