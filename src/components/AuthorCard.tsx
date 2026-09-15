@@ -10,7 +10,7 @@ interface AuthorCardProps {
 }
 
 export default function AuthorCard({
-  authorName = 'Marcus "Axel" Vance',
+  authorName = "Roblox Wiki Hub Research Desk"Axel" Vance',
   role = 'Lead Survival Mechanic & 95k-Meter Convoy Veteran',
   experience = '150+ Full Bus Runs & All S-Tier Classes Maxed',
   patchVersion = 'Beta Update Verified',
@@ -50,6 +50,10 @@ export default function AuthorCard({
       <p className="text-xs sm:text-sm text-amber-200/80 mt-3 leading-relaxed italic">
         "{editorialNote}"
       </p>
+      <div className="mt-3 pt-2 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-400">
+        <span>Methodology: <a href="https://robloxwikihub.com/about#methodology" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">Roblox Wiki Hub Standards</a></span>
+        <span>Corrections: <a href="mailto:lianlele168@gmail.com" className="underline hover:text-white">lianlele168@gmail.com</a></span>
+      </div>
     </div>
   );
 }
