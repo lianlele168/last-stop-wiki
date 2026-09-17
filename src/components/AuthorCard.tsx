@@ -10,7 +10,7 @@ interface AuthorCardProps {
 }
 
 export default function AuthorCard({
-  authorName = "Roblox Wiki Hub Research Desk"Axel" Vance',
+  authorName = 'Axel Vance',
   role = 'Lead Survival Mechanic & 95k-Meter Convoy Veteran',
   experience = '150+ Full Bus Runs & All S-Tier Classes Maxed',
   patchVersion = 'Beta Update Verified',
