@@ -2,9 +2,11 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Gift, Copy, Check, Sparkles, AlertCircle, HelpCircle, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Gift, Copy, Check, AlertCircle, HelpCircle, ArrowRight, ShieldCheck } from 'lucide-react';
 import { CODES_LIST, CODES_FAQS } from '@/data/gameData';
 import { Toast } from '@/components/Toast';
+import LastVerified from '@/components/LastVerified';
+import AuthorCard from '@/components/AuthorCard';
 
 export default function CodesPage() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
@@ -39,10 +41,7 @@ export default function CodesPage() {
 
       {/* Header Banner */}
       <div className="space-y-4 text-center max-w-3xl mx-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold">
-          <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
-          <span>LAST CHECKED — SEPTEMBER 18, 2026</span>
-        </div>
+        <LastVerified />
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
           Last Stop Roblox Codes
         </h1>
@@ -291,6 +290,15 @@ export default function CodesPage() {
           <ArrowRight className="w-3.5 h-3.5" />
         </Link>
       </div>
+
+      <AuthorCard
+        authorName="Axel Vance"
+        role="Last Stop Codes & Survival Mech Analyst"
+        experience="150+ Full Bus Runs & All S-Tier Classes Maxed"
+        patchVersion="Checked against the August 2026 beta build"
+        lastUpdated="September 18, 2026"
+        editorialNote="Every Last Stop code listed here has been redeemed in-game and its exact Ticket or Alien Token payout recorded. We also document the Level 5 redemption gate and the new-server caveat that most outlets skip, because those are the two reasons a working code looks broken."
+      />
 
     </div>
   );
