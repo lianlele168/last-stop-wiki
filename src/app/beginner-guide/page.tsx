@@ -4,6 +4,7 @@ import { BookOpen, CheckCircle, AlertTriangle, ShieldCheck, Flame, Gift, ArrowRi
 import { GAME_INFO } from '@/data/gameData';
 
 export const metadata = {
+  alternates: { canonical: 'https://laststop.robloxwikihub.com/beginner-guide/' },
   title: 'Beginner Survival Guide (0 to 95,000 Meters Walkthrough)',
   description: 'Master Roblox Last Stop with our comprehensive beginner walkthrough. Learn scavenging tactics, furnace refueling rules, and how to avoid getting locked outside the bus.',
 };

@@ -4,6 +4,7 @@ import { Wrench, Shield, Gauge, Zap, Flame, CheckCircle, ArrowRight, Milestone }
 import { MILESTONES_DATA } from '@/data/gameData';
 
 export const metadata = {
+  alternates: { canonical: 'https://laststop.robloxwikihub.com/bus-upgrades/' },
   title: 'Bus Upgrades Tech Tree & 95,000m Milestones',
   description: 'Complete guide to vehicle upgrades in Last Stop Roblox. Recommended upgrade priorities for Engine Turbos, Cowcatcher Armor, UV Searchlights, and Roof Turrets.',
 };

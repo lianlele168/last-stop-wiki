@@ -4,6 +4,10 @@ import { Bus, Flame, Gift, Award, Shield, Wrench, Skull, BookOpen, ArrowRight, C
 import { GAME_INFO, CLASSES_DATA, CODES_LIST, FAQS } from '@/data/gameData';
 import AuthorCard from '@/components/AuthorCard';
 
+export const metadata = {
+  alternates: { canonical: 'https://laststop.robloxwikihub.com/' },
+};
+
 export default function HomePage() {
   const faqSchema = {
     '@context': 'https://schema.org',
