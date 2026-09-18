@@ -32,7 +32,7 @@ export default function TermsPage() {
           Terms of Use &amp; Service Guidelines
         </h1>
         <p className="text-xs sm:text-sm text-gray-400">
-          Last Updated: 2026 • Unofficial strategy companion for Last Stop on Roblox
+          Last Updated • Unofficial strategy companion for Last Stop on Roblox
         </p>
       </div>
 

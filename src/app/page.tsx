@@ -12,7 +12,7 @@ export default function HomePage() {
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    dateModified: '2026-09-15',
+
     author: {
       '@type': 'Person',
       name: 'Marcus "Axel" Vance',
@@ -42,7 +42,7 @@ export default function HomePage() {
           {/* Eyebrow & Status Ticker */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold mb-6">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            <span>COMMUNITY WIKI — UPDATED FOR AUGUST/SEPTEMBER 2026 BETA</span>
+            <span>COMMUNITY WIKI — UPDATED FOR AUGUST/ BETA</span>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -62,7 +62,6 @@ export default function HomePage() {
                 role="Lead Survival Mechanic & 95k-Meter Convoy Veteran"
                 experience="150+ Full Bus Runs & All S-Tier Classes Maxed"
                 patchVersion="Beta Update Verified"
-                lastUpdated="September 2026"
                 editorialNote="All fuel consumption curves, zombie DPS scaling, bus armor upgrade tiers, and furnace burn times are benchmarked in 95k-meter convoy runs."
               />
 

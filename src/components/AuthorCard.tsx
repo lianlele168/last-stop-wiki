@@ -14,7 +14,7 @@ export default function AuthorCard({
   role = 'Lead Survival Mechanic & 95k-Meter Convoy Veteran',
   experience = '150+ Full Bus Runs & All S-Tier Classes Maxed',
   patchVersion = 'Beta Update Verified',
-  lastUpdated = 'September 2026',
+  lastUpdated = '',
   editorialNote = 'All fuel consumption curves, zombie DPS scaling, bus armor upgrade tiers, and furnace burn times are benchmarked in 95k-meter convoy runs.',
 }: AuthorCardProps) {
   return (
@@ -41,9 +41,7 @@ export default function AuthorCard({
           <span className="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-medium bg-amber-500/10 text-amber-300 border border-amber-500/20">
             ⚡ {patchVersion}
           </span>
-          <span className="text-xs text-slate-400">
-            Updated: <strong className="text-slate-200">{lastUpdated}</strong>
-          </span>
+          
         </div>
       </div>
 

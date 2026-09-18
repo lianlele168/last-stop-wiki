@@ -54,7 +54,7 @@ export interface CodeItem {
   reward: string;
   tickets: number;
   status: 'active' | 'expired';
-  verifiedDate: string;
+
   /** Optional caveat rendered as a badge, e.g. new-server-only behaviour. */
   note?: string;
   /** Optional prerequisite, e.g. the account level gate on redemption. */
@@ -76,7 +76,7 @@ export const GAME_INFO = {
   platform: "Roblox",
   genre: "Co-op Vehicle Survival Horror",
   targetGoal: "95,000 Meters",
-  releaseDate: "August 2026 (Beta)",
+  releaseDate: " (Beta)",
   currency: "Tickets",
   socials: {
     roblox: "https://www.roblox.com",
@@ -573,7 +573,7 @@ export const CODES_LIST: CodeItem[] = [
     reward: "750 Free Tickets",
     tickets: 750,
     status: "active",
-    verifiedDate: "September 18, 2026",
+    
     requirement: "Account level 5 required",
   },
   {
@@ -581,7 +581,7 @@ export const CODES_LIST: CodeItem[] = [
     reward: "500 Free Tickets",
     tickets: 500,
     status: "active",
-    verifiedDate: "September 18, 2026",
+    
     requirement: "Account level 5 required",
   },
   {
@@ -589,7 +589,7 @@ export const CODES_LIST: CodeItem[] = [
     reward: "250 Free Tickets",
     tickets: 250,
     status: "active",
-    verifiedDate: "September 18, 2026",
+    
     requirement: "Account level 5 required",
   },
   {
@@ -597,7 +597,7 @@ export const CODES_LIST: CodeItem[] = [
     reward: "30 Alien Tokens",
     tickets: 0,
     status: "active",
-    verifiedDate: "September 18, 2026",
+    
     requirement: "Account level 5 required",
     note: "Pays Alien Tokens, a separate currency from Tickets",
   },
@@ -606,7 +606,7 @@ export const CODES_LIST: CodeItem[] = [
     reward: "Unspecified reward bundle",
     tickets: 0,
     status: "active",
-    verifiedDate: "September 18, 2026",
+    
     requirement: "Account level 5 required",
     note: "Reported to work on new servers only",
   },
@@ -619,7 +619,7 @@ export const CODES_FAQS = [
   },
   {
     q: "How many Last Stop codes are working right now?",
-    a: "Five codes were confirmed working on September 18, 2026. Three of them pay Tickets and together they are worth 1,500 Tickets: Update2 gives 750, FRED gives 500 and UPDATE1 gives 250. The Aliens code pays 30 Alien Tokens instead of Tickets, and AliensAreCool gives an unspecified reward bundle that the developer has not documented.",
+    a: "Five codes were confirmed working on . Three of them pay Tickets and together they are worth 1,500 Tickets: Update2 gives 750, FRED gives 500 and UPDATE1 gives 250. The Aliens code pays 30 Alien Tokens instead of Tickets, and AliensAreCool gives an unspecified reward bundle that the developer has not documented.",
   },
   {
     q: "What should I spend my Last Stop Tickets on?",

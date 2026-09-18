@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Gift, Copy, Check, AlertCircle, HelpCircle, ArrowRight, ShieldCheck } from 'lucide-react';
 import { CODES_LIST, CODES_FAQS } from '@/data/gameData';
 import { Toast } from '@/components/Toast';
-import LastVerified from '@/components/LastVerified';
+
 import AuthorCard from '@/components/AuthorCard';
 
 export default function CodesPage() {
@@ -41,12 +41,12 @@ export default function CodesPage() {
 
       {/* Header Banner */}
       <div className="space-y-4 text-center max-w-3xl mx-auto">
-        <LastVerified />
+        
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
           Last Stop Roblox Codes
         </h1>
         <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-          All {activeCodes.length} working promo codes for <span className="text-amber-400 font-bold font-mono">Last Stop</span> by The Hidden Route, re-checked on September 18, 2026. Redeem them for Tickets to unlock S-Tier classes and upgrade your bus armour before hitting the road.
+          All {activeCodes.length} working promo codes for <span className="text-amber-400 font-bold font-mono">Last Stop</span> by The Hidden Route, re-checked on . Redeem them for Tickets to unlock S-Tier classes and upgrade your bus armour before hitting the road.
         </p>
       </div>
 
@@ -142,7 +142,7 @@ export default function CodesPage() {
                       {isActive ? 'Active & Working' : 'Expired'}
                     </span>
                   </div>
-                  <div className="text-[11px] text-gray-400 mt-0.5">{item.verifiedDate}</div>
+                  <div className="text-[11px] text-gray-400 </div>
                   {item.note && (
                     <div className="text-[11px] text-amber-400/90 mt-1">Note: {item.note}</div>
                   )}
@@ -180,7 +180,7 @@ export default function CodesPage() {
           <div className="glass-panel p-8 rounded-2xl text-center space-y-2">
             <p className="text-sm font-bold text-white">No expired codes yet</p>
             <p className="text-xs text-gray-400 max-w-md mx-auto">
-              Every Last Stop code we have tracked is still working as of September 18, 2026. This game is still in beta, so codes are simply retired rather than re-added — when one stops working we move it here instead of deleting it, so you never waste a copy-paste on a dead code.
+              Every Last Stop code we have tracked is still working as of . This game is still in beta, so codes are simply retired rather than re-added — when one stops working we move it here instead of deleting it, so you never waste a copy-paste on a dead code.
             </p>
           </div>
         )}
@@ -295,8 +295,7 @@ export default function CodesPage() {
         authorName="Axel Vance"
         role="Last Stop Codes & Survival Mech Analyst"
         experience="150+ Full Bus Runs & All S-Tier Classes Maxed"
-        patchVersion="Checked against the August 2026 beta build"
-        lastUpdated="September 18, 2026"
+        patchVersion="Checked against the beta build"
         editorialNote="Every Last Stop code listed here has been redeemed in-game and its exact Ticket or Alien Token payout recorded. We also document the Level 5 redemption gate and the new-server caveat that most outlets skip, because those are the two reasons a working code looks broken."
       />
 

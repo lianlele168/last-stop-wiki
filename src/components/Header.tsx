@@ -47,7 +47,7 @@ export const Header: React.FC = () => {
     ...ENEMIES_DATA.filter(e => e.name.toLowerCase().includes(searchQuery.toLowerCase()) || e.threatLevel.toLowerCase().includes(searchQuery.toLowerCase()))
       .map(e => ({ title: `${e.name} (Threat: ${e.threatLevel})`, link: '/zombies-bestiary/', type: 'Zombie', desc: e.counterStrategy })),
     ...CODES_LIST.filter(c => c.code.toLowerCase().includes(searchQuery.toLowerCase()))
-      .map(c => ({ title: `Code: ${c.code} (${c.reward})`, link: '/codes/', type: 'Code', desc: c.verifiedDate })),
+      .map(c => ({ title: `Code: ${c.code} (${c.reward})`, link: '/codes/', type: 'Code', })),
   ].slice(0, 8);
 
   return (

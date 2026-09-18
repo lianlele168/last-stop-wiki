@@ -49,7 +49,7 @@ export default function ClassTierListPage() {
       <div className="space-y-4 max-w-3xl">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold">
           <Award className="w-3.5 h-3.5 text-amber-400" />
-          <span>SEPTEMBER 2026 META RANKINGS</span>
+          <span> META RANKINGS</span>
         </div>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
           Last Stop Classes Tier List & Comparison
