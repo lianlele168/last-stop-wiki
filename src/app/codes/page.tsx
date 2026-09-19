@@ -46,7 +46,7 @@ export default function CodesPage() {
           Last Stop Roblox Codes
         </h1>
         <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-          All {activeCodes.length} working promo codes for <span className="text-amber-400 font-bold font-mono">Last Stop</span> by The Hidden Route, re-checked on . Redeem them for Tickets to unlock S-Tier classes and upgrade your bus armour before hitting the road.
+          All {activeCodes.length} working promo codes for <span className="text-amber-400 font-bold font-mono">Last Stop</span> by The Hidden Route. Redeem them for Tickets to unlock S-Tier classes and upgrade your bus armour before hitting the road.
         </p>
       </div>
 
@@ -142,7 +142,6 @@ export default function CodesPage() {
                       {isActive ? 'Active & Working' : 'Expired'}
                     </span>
                   </div>
-                  <div className="text-[11px] text-gray-400 </div>
                   {item.note && (
                     <div className="text-[11px] text-amber-400/90 mt-1">Note: {item.note}</div>
                   )}
@@ -180,7 +179,7 @@ export default function CodesPage() {
           <div className="glass-panel p-8 rounded-2xl text-center space-y-2">
             <p className="text-sm font-bold text-white">No expired codes yet</p>
             <p className="text-xs text-gray-400 max-w-md mx-auto">
-              Every Last Stop code we have tracked is still working as of . This game is still in beta, so codes are simply retired rather than re-added — when one stops working we move it here instead of deleting it, so you never waste a copy-paste on a dead code.
+              Every Last Stop code we have tracked is still working. This game is still in beta, so codes are simply retired rather than re-added — when one stops working we move it here instead of deleting it, so you never waste a copy-paste on a dead code.
             </p>
           </div>
         )}
