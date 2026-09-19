@@ -66,7 +66,7 @@ export default function AboutPage() {
           </p>
           <div className="inline-flex items-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-950/40 px-3 py-1.5 font-mono text-xs font-bold text-emerald-300">
             <Mail className="w-3.5 h-3.5" />
-            <span>lianlele168@gmail.com</span>
+            <span>lianlele168@gmail</span>
           </div>
           <p className="text-[11px] text-slate-500">Inquiries are acknowledged within 48 business hours.</p>
         </div>

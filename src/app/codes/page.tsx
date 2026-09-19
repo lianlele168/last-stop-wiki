@@ -291,9 +291,9 @@ export default function CodesPage() {
       </div>
 
       <AuthorCard
-        authorName="Axel Vance"
-        role="Last Stop Codes & Survival Mech Analyst"
-        experience="150+ Full Bus Runs & All S-Tier Classes Maxed"
+        authorName="Hlele"
+        role="Editor"
+        experience="AI-assisted research, human-reviewed"
         patchVersion="Checked against the beta build"
         editorialNote="Every Last Stop code listed here has been redeemed in-game and its exact Ticket or Alien Token payout recorded. We also document the Level 5 redemption gate and the new-server caveat that most outlets skip, because those are the two reasons a working code looks broken."
       />

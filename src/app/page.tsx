@@ -15,8 +15,8 @@ export default function HomePage() {
 
     author: {
       '@type': 'Person',
-      name: 'Marcus "Axel" Vance',
-      jobTitle: 'Lead Survival Mechanic & Convoy Veteran',
+      name: 'Hlele',
+      jobTitle: 'Editor',
     },
     mainEntity: FAQS.map((faq) => ({
       '@type': 'Question',
@@ -58,11 +58,11 @@ export default function HomePage() {
 
               {/* Author Card */}
               <AuthorCard
-                authorName="Marcus 'Axel' Vance"
-                role="Lead Survival Mechanic & 95k-Meter Convoy Veteran"
-                experience="150+ Full Bus Runs & All S-Tier Classes Maxed"
+                authorName="Hlele"
+                role="Editor"
+                experience="AI-assisted research, human-reviewed"
                 patchVersion="Beta Update Verified"
-                editorialNote="All fuel consumption curves, zombie DPS scaling, bus armor upgrade tiers, and furnace burn times are benchmarked in 95k-meter convoy runs."
+                editorialNote="All fuel consumption curves, zombie DPS scaling, bus armor upgrade tiers, and furnace burn times are cross-checked against multiple community sources; any figure we could not independently confirm is explicitly labeled as unverified."
               />
 
               {/* Action Buttons */}

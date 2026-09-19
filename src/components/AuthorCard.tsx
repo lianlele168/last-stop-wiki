@@ -10,12 +10,12 @@ interface AuthorCardProps {
 }
 
 export default function AuthorCard({
-  authorName = 'Axel Vance',
-  role = 'Lead Survival Mechanic & 95k-Meter Convoy Veteran',
-  experience = '150+ Full Bus Runs & All S-Tier Classes Maxed',
+  authorName = 'Hlele',
+  role = 'Editor',
+  experience = 'AI-assisted research, human-reviewed',
   patchVersion = 'Beta Update Verified',
   lastUpdated = '',
-  editorialNote = 'All fuel consumption curves, zombie DPS scaling, bus armor upgrade tiers, and furnace burn times are benchmarked in 95k-meter convoy runs.',
+  editorialNote = 'All fuel consumption curves, zombie DPS scaling, bus armor upgrade tiers, and furnace burn times are cross-checked against multiple community sources; any figure we could not independently confirm is explicitly labeled as unverified.',
 }: AuthorCardProps) {
   return (
     <div className="w-full rounded-2xl bg-slate-900/80 border border-amber-500/30 p-4 sm:p-5 backdrop-blur-md my-6 text-left shadow-lg">
@@ -50,7 +50,7 @@ export default function AuthorCard({
       </p>
       <div className="mt-3 pt-2 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-400">
         <span>Methodology: <a href="https://robloxwikihub.com/about#methodology" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">Roblox Wiki Hub Standards</a></span>
-        <span>Corrections: <a href="mailto:lianlele168@gmail.com" className="underline hover:text-white">lianlele168@gmail.com</a></span>
+        <span>Corrections: <a href="mailto:lianlele168@gmail" className="underline hover:text-white">lianlele168@gmail</a></span>
       </div>
     </div>
   );

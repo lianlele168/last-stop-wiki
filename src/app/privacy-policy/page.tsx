@@ -133,7 +133,7 @@ export default function PrivacyPolicyPage() {
             If you have questions regarding our privacy practices or wish to submit corrections to our wiki guides, please contact the editorial staff at:
           </p>
           <div className="inline-block rounded-xl border border-blue-500/30 bg-blue-950/40 p-3 font-mono text-sm font-bold text-blue-300">
-            lianlele168@gmail.com
+            lianlele168@gmail
           </div>
           <p className="text-xs text-gray-400 font-mono">
             Inquiries are acknowledged and resolved within 48 business hours.

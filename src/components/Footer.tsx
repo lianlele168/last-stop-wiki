@@ -114,6 +114,9 @@ export const Footer: React.FC = () => {
             <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500" />
             <span>for Roblox Survivors</span>
           </div>
+        <div className="mt-3 text-[11px] text-gray-600 text-center">
+          <p>Content AI-assisted, human-reviewed · Data sources cited on page · Contact: lianlele168@gmail</p>
+        </div>
         </div>
       </div>
     </footer>
