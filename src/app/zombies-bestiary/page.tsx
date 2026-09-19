@@ -34,7 +34,7 @@ export default function ZombiesBestiaryPage() {
       '@type': 'ListItem',
       position: index + 1,
       name: `${e.name} (Threat: ${e.threatLevel})`,
-      description: `HP: ${e.health}, Speed: ${e.speed} - Counter: ${e.counterStrategy}`,
+      description: `HP: ${e.health ?? 'not documented'}, Speed: ${e.speed} - Counter: ${e.counterStrategy}`,
     })),
   };
 
@@ -55,7 +55,10 @@ export default function ZombiesBestiaryPage() {
           Infected Threats & Boss Bestiary
         </h1>
         <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-          From shambling suburban walkers to the colossal 28,000 HP Final Overlord blocking the 95,000m bunker, memorize attack patterns, spawn ranges, and counter strategies.
+          From the common infected hordes to the two-phase vampire boss Dracula at the Graveyard, memorize encounter locations and counter strategies for the road to the 95,000m Final Stop.
+        </p>
+        <p className="text-[11px] text-gray-500 font-mono leading-relaxed border-l-2 border-emerald-500/40 pl-3">
+          Data verification (Sept 2026): the previously listed "Highway Goliath (6,000 HP)", "Industrial Abomination (14,000 HP)" and "Final Overlord (28,000 HP)" bosses appear in no reliable source and have been removed. Confirmed bosses are Dracula (9,000 HP, two phases), Anubis and Fred. HP marked "not documented" has no official value.
         </p>
       </div>
 
@@ -69,7 +72,7 @@ export default function ZombiesBestiaryPage() {
         />
         <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-transparent p-4 flex items-center justify-between">
           <div className="text-xs sm:text-sm text-slate-200 font-medium">
-            <span className="text-red-400 font-bold">Biohazard Horde</span> — Mutation wave patterns & Overlord boss suppression tactics
+            <span className="text-red-400 font-bold">Biohazard Horde</span> — Infected swarm patterns & Dracula / Anubis / Fred boss tactics
           </div>
           <span className="px-2.5 py-1 bg-red-500/20 text-red-300 text-[11px] rounded-lg border border-red-500/30 font-mono">
             Threat Level: Extreme
@@ -109,7 +112,7 @@ export default function ZombiesBestiaryPage() {
               <div>
                 <h3 className="text-xl font-bold text-white">{enemy.name}</h3>
                 <div className="flex items-center gap-4 text-xs font-mono mt-1 text-gray-400">
-                  <span>HP: <strong className="text-red-400 font-bold">{enemy.health.toLocaleString()}</strong></span>
+                  <span>HP: <strong className="text-red-400 font-bold">{enemy.health !== null ? enemy.health.toLocaleString() : 'Not documented'}</strong></span>
                   <span>Speed: <strong className="text-amber-400 font-bold">{enemy.speed}</strong></span>
                 </div>
               </div>
@@ -132,6 +135,11 @@ export default function ZombiesBestiaryPage() {
                 <span className="text-gray-500">Loot Drop:</span>
                 <span className="text-emerald-400 font-bold">{enemy.lootDrop}</span>
               </div>
+
+              {/* Source note */}
+              {enemy.source && (
+                <div className="text-[9px] text-emerald-500/80 font-mono leading-relaxed">✓ {enemy.source}</div>
+              )}
             </div>
           </div>
         ))}
@@ -141,25 +149,25 @@ export default function ZombiesBestiaryPage() {
       <section className="glass-panel p-6 sm:p-8 rounded-2xl border-red-500/30 space-y-4">
         <h2 className="text-xl font-bold text-white flex items-center gap-2">
           <ShieldAlert className="w-5 h-5 text-red-400" />
-          <span>Boss Encounter Protocols: 30k, 60k & 95k Checkpoints</span>
+          <span>Boss Encounter Protocols: Dracula, Anubis & Fred</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-gray-300">
           <div className="p-4 rounded-xl bg-wasteland-950 border border-white/5 space-y-2">
-            <div className="text-amber-400 font-bold font-mono">30,000m: Highway Goliath</div>
+            <div className="text-amber-400 font-bold font-mono">Graveyard: Dracula (9,000 HP, 2 phases)</div>
             <p className="text-gray-400 text-[11px] leading-relaxed">
-              Do not leave the bus! He throws wreckage at ground survivors. Station gunners on the roof with Hunting Rifles and focus fire on his cranium.
+              Located near Checkpoint III. He grabs players on the road first — mash the &quot;Fight Back&quot; meter to escape — then opens a two-phase boss fight. Keep your best sustained weapon and a revive plan ready.
             </p>
           </div>
           <div className="p-4 rounded-xl bg-wasteland-950 border border-white/5 space-y-2">
-            <div className="text-purple-400 font-bold font-mono">60,000m: Industrial Abomination</div>
+            <div className="text-purple-400 font-bold font-mono">Hidden Dungeon: Anubis</div>
             <p className="text-gray-400 text-[11px] leading-relaxed">
-              Summons continuous sprinters from the train cars. Use Tommy Guns and roof flame turrets to keep the perimeter clear while chipping his 14,000 HP.
+              An optional dungeon encounter (Sphinx-themed update) awarding the &quot;God Slayer&quot; badge. Enter only with full ammo and healing — recorded runs open the chamber roughly 20+ minutes in, but access is not fixed.
             </p>
           </div>
           <div className="p-4 rounded-xl bg-wasteland-950 border border-white/5 space-y-2">
-            <div className="text-red-400 font-bold font-mono">95,000m: The Final Overlord</div>
+            <div className="text-red-400 font-bold font-mono">95,000m: Fred (The Final Stop)</div>
             <p className="text-gray-400 text-[11px] leading-relaxed">
-              Throw all accumulated pipe bombs at once, engage engine overdrive, and ram the final gate while firing point-blank shotguns.
+              The deciding encounter at the Last Stop itself. Cure Fred with the potion for the peaceful ride ending, or preserve nothing and fight him for the kill ending. Decide your ending before you arrive.
             </p>
           </div>
         </div>

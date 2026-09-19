@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Last Stop Wiki — Roblox Survival Guide & Tools',
-    description: 'Calculate fuel range to 95,000m, redeem active Tickets codes, and master all 12 survivor classes.',
+    description: 'Calculate fuel range to 95,000m, redeem active Tickets codes, and master every survivor class from Ghoul to Necromancer.',
   },
 };
 

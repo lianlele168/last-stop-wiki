@@ -318,7 +318,7 @@ export default function HomePage() {
                   Infected Threats & Boss Guide
                 </h3>
                 <p className="text-gray-400 text-xs mt-2 leading-relaxed">
-                  Counter strategies for Sprinters, Acid Spitters, Brutes, and the Highway Goliath at 30,000m.
+                  Counter strategies for the infected hordes, Dracula's two-phase Graveyard fight, the Anubis dungeon, and Fred at the 95,000m Final Stop.
                 </p>
               </div>
             </div>

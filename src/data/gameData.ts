@@ -11,6 +11,8 @@
   levelBonuses: string[];
   pros: string[];
   cons: string[];
+  /** Verification note: where this class data was confirmed (Sept 2026 data pass). */
+  source?: string;
 }
 
 export interface FuelItem {
@@ -22,31 +24,39 @@ export interface FuelItem {
   efficiencyTier: 'High' | 'Medium' | 'Low' | 'Emergency';
   howToObtain: string;
   icon: string;
+  /** Verification note for the fuel figures (Sept 2026 data pass). */
+  source?: string;
 }
 
 export interface WeaponData {
   id: string;
   name: string;
   category: 'Firearms' | 'Melee' | 'Throwable' | 'Bus Turret';
-  damage: number;
+  /** null = exact per-hit damage is not officially documented. */
+  damage: number | null;
   fireRate: string;
   range: string;
   ammoType: string;
   tier: 'S' | 'A' | 'B' | 'C';
   description: string;
   bestUse: string;
+  /** Verification note (Sept 2026 data pass). */
+  source?: string;
 }
 
 export interface EnemyData {
   id: string;
   name: string;
   threatLevel: 'Boss' | 'Extreme' | 'High' | 'Medium' | 'Low';
-  health: number;
+  /** null = HP is not officially documented. */
+  health: number | null;
   speed: string;
   dangerDescription: string;
   counterStrategy: string;
   lootDrop: string;
   milestoneSpawn: string;
+  /** Verification note (Sept 2026 data pass). */
+  source?: string;
 }
 
 export interface CodeItem {
@@ -110,7 +120,27 @@ export const CLASSES_DATA: ClassData[] = [
       "Lv 3: Up to 10 zombie thralls (100% max HP) with health regeneration"
     ],
     pros: ["Creates passive defensive buffer around bus", "Scales exponentially against large hordes", "Thralls absorb boss aggro"],
-    cons: ["Robux-exclusive unlock", "Thralls require line-of-sight command"]
+    cons: ["Robux-exclusive unlock", "Thralls require line-of-sight command"],
+    source: "Verified Sept 2026: Sportskeeda Classes guide & GameZebo tier list (5 stars, 899 Robux, thrall scaling)."
+  },
+  {
+    id: "ghoul",
+    name: "Ghoul",
+    stars: 5,
+    tier: "S",
+    cost: "18,000 Tickets",
+    role: "Combat",
+    description: "The corpse-eating rage engine. Food gives you no benefit — instead, devour zombie corpses to restore Hunger and charge a devastating Rage state.",
+    passive: "Eating zombie corpses restores Hunger and builds Rage. While raging you take massively reduced damage, jump far higher, land crushing plunge attacks, and bite corpses dramatically faster. Food items no longer restore Hunger.",
+    startingGear: ["No specialized starter gear"],
+    levelBonuses: [
+      "Lv 1: Rage lasts 30s, -40% damage taken, 2x jump height, +50 landing damage, 0.6s bite, +4% hunger and +5% rage per corpse",
+      "Lv 2: Rage lasts 45s, -60% damage taken, 2.5x jump height, +75 landing damage, 0.4s bite, +7% hunger and +8% rage per corpse",
+      "Lv 3: Rage lasts 60s, -80% damage taken, 3x jump height, +100 landing damage, 0.2s bite, +10% hunger and +12% rage per corpse"
+    ],
+    pros: ["Near-unkillable while raging (up to 80% damage reduction)", "Fully self-sufficient — never needs food supplies", "Ranked the best class in the game by Sportskeeda"],
+    cons: ["Most expensive Ticket class (18,000)", "Must keep feeding on corpses to sustain Hunger and Rage", "Rage playstyle rewards risky melee dives into hordes"],
+    source: "Verified Sept 2026: GameZebo tier list (Sep 9) full level table; Sportskeeda Classes guide (Sep 8) ranks Ghoul the best class; also covered by TechWiser and laststopmeta.com."
   },
   {
     id: "vampire",
@@ -312,258 +342,243 @@ export const CLASSES_DATA: ClassData[] = [
   }
 ];
 
+/*
+ * Sept 2026 verification pass: the developer has NOT published official per-item
+ * fuel burn values. Guides (Sportskeeda beginner guide, allthings.how, GameZebo)
+ * confirm fuel TYPES and their rough priority (Gas Can reserved for the burner,
+ * coal keeps the furnace fed, food is last-resort) but no exact meter figures.
+ * The distanceBoostMeters values below are community ESTIMATES used for modelling;
+ * they are labelled as such wherever they are displayed.
+ */
 export const FUEL_ITEMS: FuelItem[] = [
   {
     id: "fuel-canister",
-    name: "Fuel Canister (Military Grade)",
+    name: "Fuel Canister (Gas Can)",
     type: "Liquid Gasoline",
     distanceBoostMeters: 800,
     burnDurationSec: 120,
     efficiencyTier: "High",
-    howToObtain: "Gas stations, military checkpoints, industrial outposts",
-    icon: "Fuel"
+    howToObtain: "Gas stations along the route (first one reported around 3,000m), road stops and Terminals",
+    icon: "Fuel",
+    source: "Fuel type confirmed by Sportskeeda & allthings.how ('reserve every Gas Can for the burner'). ~800m per can is a community estimate, not an official value."
   },
   {
     id: "raw-coal",
-    name: "Refined Coal Chunk",
+    name: "Coal Chunk",
     type: "Solid Carbon",
     distanceBoostMeters: 400,
     burnDurationSec: 60,
     efficiencyTier: "Medium",
-    howToObtain: "Mining crates, train stations, basement cellars",
-    icon: "Flame"
+    howToObtain: "Mining crates, roadside buildings and sold by vendors at Terminals",
+    icon: "Flame",
+    source: "Fuel type confirmed by Sportskeeda & allthings.how ('keep the furnace burning with coal'). ~400m per chunk is a community estimate, not an official value."
   },
   {
     id: "wood-plank",
-    name: "Reinforced Wood Plank",
+    name: "Wood Plank",
     type: "Combustible Timber",
     distanceBoostMeters: 150,
     burnDurationSec: 25,
     efficiencyTier: "Low",
-    howToObtain: "Dismantling furniture, suburban sheds, trees",
-    icon: "TreePine"
+    howToObtain: "Dismantling furniture and roadside buildings with the Hammer",
+    icon: "TreePine",
+    source: "Fuel type confirmed by community guides ('spare combustibles'). ~150m per plank is a community estimate, not an official value."
   },
   {
     id: "scrap-food",
-    name: "Expired Bio-Scrap / Food",
+    name: "Scrap Food",
     type: "Emergency Organic",
     distanceBoostMeters: 50,
     burnDurationSec: 10,
     efficiencyTier: "Emergency",
-    howToObtain: "Kitchen counters, garbage bins (Last resort fuel)",
-    icon: "Apple"
+    howToObtain: "Kitchen counters and loot crates (last-resort furnace fuel; note that the Ghoul class gets no benefit from food)",
+    icon: "Apple",
+    source: "Food confirmed as furnace fuel by Sportskeeda beginner guide. ~50m per item is a community estimate, not an official value."
   }
 ];
 
+/*
+ * Sept 2026 verification pass: no reliable source (Sportskeeda, GameZebo, TechWiser,
+ * fan wikis) publishes exact per-hit weapon damage for Last Stop, so every numeric
+ * damage field is set to null / "not documented". Weapon archetypes, ammo types and
+ * engagement ranges are community-reported; tier ratings are this site's editorial
+ * ranking, not an official value.
+ */
 export const WEAPONS_DATA: WeaponData[] = [
   {
     id: "combat-shotgun",
     name: "Combat 12-Gauge Shotgun",
     category: "Firearms",
-    damage: 180,
-    fireRate: "Medium (1.2s)",
-    range: "Short (8m)",
+    damage: null,
+    fireRate: "Pump-action, medium cycle",
+    range: "Short (point-blank to bus door)",
     ammoType: "12G Shells",
     tier: "S",
-    description: "Devastating close-range weapon that clears doorway breaches in a single blast.",
-    bestUse: "Repelling zombie climbers boarding the bus door."
+    description: "Devastating close-range weapon that clears doorway breaches and boarding clusters in a single blast.",
+    bestUse: "Repelling infected climbing aboard through the bus door.",
+    source: "Archetype confirmed by community guides; exact damage not documented."
   },
   {
     id: "hunting-rifle",
     name: "Scoped Hunting Rifle",
     category: "Firearms",
-    damage: 240,
-    fireRate: "Bolt-Action (1.8s)",
-    range: "Extreme (60m)",
-    ammoType: "7.62mm Rounds",
+    damage: null,
+    fireRate: "Slow cycle between shots",
+    range: "Extreme (long sightlines)",
+    ammoType: "Rifle Rounds",
     tier: "S",
-    description: "High-precision rifle that eliminates Acid Spitters and Brutes before they approach.",
-    bestUse: "Roof sniping during open highway stretches."
+    description: "High-precision rifle for eliminating threats before they close on the bus.",
+    bestUse: "Roof sniping during open road stretches and checkpoint halts.",
+    source: "Archetype confirmed by community guides; exact damage not documented."
   },
   {
     id: "tommy-gun",
     name: "Submachine Gun (Tommy)",
     category: "Firearms",
-    damage: 45,
-    fireRate: "Full-Auto (650 RPM)",
-    range: "Medium (20m)",
-    ammoType: "9mm Ammo",
+    damage: null,
+    fireRate: "Full-auto",
+    range: "Medium",
+    ammoType: "SMG Ammo",
     tier: "A",
-    description: "High capacity drum magazine weapon that shreds dense swarms of sprinters.",
-    bestUse: "Horde suppression during night cycles."
+    description: "High-capacity automatic weapon that shreds dense swarms of fast infected.",
+    bestUse: "Horde suppression during night cycles and checkpoint defenses.",
+    source: "Archetype confirmed by community guides; exact damage not documented."
   },
   {
-    id: "revolver",
-    name: "Heavy Service Revolver",
+    id: "service-pistol",
+    name: "Service Pistol",
     category: "Firearms",
-    damage: 95,
-    fireRate: "Semi-Auto (0.8s)",
-    range: "Medium (25m)",
-    ammoType: ".44 Magnum",
+    damage: null,
+    fireRate: "Semi-auto",
+    range: "Medium",
+    ammoType: "Pistol Rounds",
     tier: "B",
-    description: "Reliable, high-impact handgun that one-shots standard walkers with headshots.",
-    bestUse: "Scavenging sidearm with dependable stopping power."
+    description: "The Policeman class's starting sidearm, issued with a small round reserve that grows with class level.",
+    bestUse: "Reliable early-run scavenging sidearm with cheap, common ammo.",
+    source: "Confirmed via GameZebo class table (Policeman L1-L3: 15/20/30 rounds); exact damage not documented."
   },
   {
     id: "spiked-sledge",
     name: "Spiked Sledgehammer",
     category: "Melee",
-    damage: 130,
-    fireRate: "Heavy Swing (1.5s)",
-    range: "Melee (2.5m)",
+    damage: null,
+    fireRate: "Heavy swing",
+    range: "Melee (~2.5m)",
     ammoType: "None",
     tier: "S",
-    description: "Brutal two-handed blunt weapon that breaks zombie armor and knocks down groups.",
-    bestUse: "Berserker class horde cleaving without wasting ammo."
+    description: "Brutal two-handed blunt weapon that breaks through clusters without spending a bullet.",
+    bestUse: "Melee-focused classes clearing doorway swarms and saving ammo.",
+    source: "Archetype confirmed by community guides; exact damage not documented."
   },
   {
     id: "reinforced-crowbar",
     name: "Hardened Steel Crowbar",
     category: "Melee",
-    damage: 65,
-    fireRate: "Fast Swing (0.7s)",
-    range: "Melee (2.0m)",
+    damage: null,
+    fireRate: "Fast swing",
+    range: "Melee (~2m)",
     ammoType: "None",
     tier: "A",
-    description: "Versatile scavenging tool that deals solid damage and cracks open locked crates.",
-    bestUse: "Quiet scavenging runs and silent walker eliminations."
+    description: "Versatile scavenging tool that deals solid melee damage and doubles as a looting implement.",
+    bestUse: "Quiet scavenging runs and conserving ammunition.",
+    source: "Archetype confirmed by community guides; exact damage not documented."
+  },
+  {
+    id: "graveyard-shovel",
+    name: "Graveyard Shovel",
+    category: "Melee",
+    damage: null,
+    fireRate: "Heavy swing",
+    range: "Melee (~2m)",
+    ammoType: "None",
+    tier: "B",
+    description: "The Gravedigger class's exclusive shovel that digs random items out of graves, usable as an emergency melee weapon.",
+    bestUse: "Gravedigger loot farming loops near graveyard terrain.",
+    source: "Confirmed via GameZebo class table (Gravedigger exclusive tool); exact damage not documented."
   },
   {
     id: "roof-turret",
     name: "Mounted Roof Auto-Turret",
     category: "Bus Turret",
-    damage: 55,
-    fireRate: "Rapid-Fire (500 RPM)",
-    range: "360° (35m)",
-    ammoType: "Turret Battery / Ammo Box",
+    damage: null,
+    fireRate: "Rapid-fire, auto-targeting",
+    range: "360° around the bus roof",
+    ammoType: "Turret Ammo Box",
     tier: "S",
-    description: "Automated perimeter defense installed on the bus roof. Fires automatically at detected infected.",
-    bestUse: "Continuous rear defense while survivors focus on refueling."
-  },
-  {
-    id: "pipe-bomb",
-    name: "Improvised Pipe Bomb",
-    category: "Throwable",
-    damage: 450,
-    fireRate: "Throwable (3s fuse)",
-    range: "AoE Blast (10m)",
-    ammoType: "Consumable",
-    tier: "A",
-    description: "Beeping explosive that attracts zombies before detonating with massive shrapnel.",
-    bestUse: "Clutch escape when the bus is surrounded at a roadblock."
+    description: "Automated roof defense that fires on detected infected while survivors scavenge or refuel.",
+    bestUse: "Continuous perimeter cover during furnace refuel stops.",
+    source: "Bus turret mounts confirmed by community bus-upgrade guides; exact damage not documented."
   }
 ];
 
+/*
+ * Sept 2026 verification pass: the previous bestiary listed invented bosses
+ * ("Highway Goliath 6,000 HP", "Industrial Abomination 14,000 HP", "Final Overlord
+ * 28,000 HP") that no reliable source documents. Confirmed bosses in Last Stop are
+ * Fred, Anubis and Dracula (badge records on laststopbus.wiki; Dracula's 9,000 HP
+ * two-phase fight per laststopguide.wiki). Exact HP for regular infected and most
+ * bosses is not officially published, so those fields are marked null / not documented.
+ */
 export const ENEMIES_DATA: EnemyData[] = [
   {
-    id: "walker",
-    name: "Shambling Walker",
+    id: "standard-infected",
+    name: "Standard Infected",
     threatLevel: "Low",
-    health: 100,
-    speed: "Slow (3 m/s)",
-    dangerDescription: "The common infected. Slow and weak alone, but dangerous when cluttering bus doorways.",
-    counterStrategy: "Aim for the head with revolver or clean up with melee weapons to save ammo.",
-    lootDrop: "Scrap cloth, 5-10 Tickets",
-    milestoneSpawn: "0m - 95,000m (Everywhere)"
+    health: null,
+    speed: "Slow walk, sprints in packs at night",
+    dangerDescription: "The common zombie horde that prowls the entire route. Individually weak, but they swarm stopped buses and breach unboarded windows in large numbers.",
+    counterStrategy: "Keep windows barricaded, keep the furnace burning so the bus never stalls, and clear door clusters with melee before switching to firearms.",
+    lootDrop: "Scrap items and Tickets sold at Terminals (exact drops vary by run)",
+    milestoneSpawn: "Entire route (0m - 95,000m)",
+    source: "Zombie hordes confirmed by Sportskeeda beginner guide & allthings.how; exact per-type HP not documented by any reliable source."
   },
   {
-    id: "crawler",
-    name: "Lurking Crawler",
-    threatLevel: "Low",
-    health: 60,
-    speed: "Medium (4.5 m/s)",
-    dangerDescription: "Low-profile infected that crawls under bus wheels and bites ankles during scavenging.",
-    counterStrategy: "Look down while exiting the bus and use downward melee swings.",
-    lootDrop: "Bones, Nails",
-    milestoneSpawn: "0m - 50,000m"
+    id: "dracula",
+    name: "Dracula (Vampire Boss)",
+    threatLevel: "Boss",
+    health: 9000,
+    speed: "Aggressive, grabs players on the road",
+    dangerDescription: "A two-phase vampire boss encountered at the Graveyard. Dracula grabs survivors on the road and forces a \"Fight Back\" meter struggle before the proper fight begins.",
+    counterStrategy: "Mash out of the road grab via the Fight Back meter, then burn down his two phases with your best sustained firepower while teammates revive grabbed survivors.",
+    lootDrop: "Boss defeat badge: \"Defeat Dracula Boss!\" (added Sept 5, 2026)",
+    milestoneSpawn: "Graveyard, near Checkpoint III",
+    source: "Verified Sept 2026: laststopguide.wiki (9,000 HP, two phases, Graveyard) and Sportskeeda badges list (grab + Fight Back meter, Checkpoint III)."
   },
   {
-    id: "sprinter",
-    name: "Feral Sprinter",
-    threatLevel: "High",
-    health: 140,
-    speed: "Very Fast (8.5 m/s)",
-    dangerDescription: "Sprints in packs, capable of leaping through open bus windows and catching up to slow buses.",
-    counterStrategy: "Keep windows barricaded and deploy stun traps or shotgun blasts at close range.",
-    lootDrop: "Energy drink, 15-25 Tickets",
-    milestoneSpawn: "10,000m - 95,000m (Night Heavy)"
+    id: "anubis",
+    name: "Anubis (Dungeon Boss)",
+    threatLevel: "Boss",
+    health: null,
+    speed: "Unknown (dungeon encounter)",
+    dangerDescription: "Hidden dungeon boss themed on the Anubis/Sphinx update. Defeating him awards the \"God Slayer\" badge. One recorded run opened the chamber roughly 23 minutes into the session, but spawn access is not fixed.",
+    counterStrategy: "Bring full ammo reserves and healing before entering the dungeon chamber — the encounter is optional, so a squad that is low on supplies should skip it.",
+    lootDrop: "Badge: \"God Slayer\" (Anubis defeat objective)",
+    milestoneSpawn: "Hidden dungeon (location varies)",
+    source: "Verified Sept 2026: laststopbus.wiki bosses page (God Slayer badge, dungeon timing caveat). HP not documented in any reliable source."
   },
   {
-    id: "acid-spitter",
-    name: "Corrosive Spitter",
-    threatLevel: "High",
-    health: 220,
-    speed: "Medium (4 m/s)",
-    dangerDescription: "Hangs back and spits globes of green acid that melt bus metal plating and blind passengers.",
-    counterStrategy: "Prioritize with Scoped Hunting Rifle before it can hit the bus furnace.",
-    lootDrop: "Acid vial, 35 Tickets",
-    milestoneSpawn: "25,000m - 95,000m"
+    id: "fred",
+    name: "Fred (Final Stop Boss)",
+    threatLevel: "Boss",
+    health: null,
+    speed: "Unknown (endgame encounter)",
+    dangerDescription: "The deciding encounter at The Last Stop itself. Fred offers two endings: cure him with the potion for the peaceful ride ending, or defeat him in combat for the kill ending.",
+    counterStrategy: "Decide your ending before the final stop. Preserve the cure potion if you want the Cure Fred ending; otherwise bring every stored weapon and explosive for the boss fight.",
+    lootDrop: "Cure ending badge or kill ending badge (God Slayer-style objectives)",
+    milestoneSpawn: "The Final Stop (95,000m)",
+    source: "Verified Sept 2026: laststopbus.wiki Endings page (cure-vs-defeat outcomes) and laststop-roblox.wiki Cure Fred guide. HP not officially documented (~5,500 HP reports are unverified)."
   },
   {
-    id: "armored-riot",
-    name: "Armored Riot Guard",
-    threatLevel: "High",
-    health: 450,
-    speed: "Medium (4.5 m/s)",
-    dangerDescription: "Ex-police wearing ballistic helmets and riot shields. Bulletproof from the front.",
-    counterStrategy: "Flank from behind, use Sledgehammer heavy blows, or ignite with Molotovs.",
-    lootDrop: "Shotgun shells, Riot vest, 50 Tickets",
-    milestoneSpawn: "30,000m - 80,000m"
-  },
-  {
-    id: "the-brute",
-    name: "Mutated Brute",
+    id: "nightmare-horde",
+    name: "Nightmare Mode Horde",
     threatLevel: "Extreme",
-    health: 1500,
-    speed: "Fast Charge (9 m/s)",
-    dangerDescription: "Massive behemoth that charges into the bus front bumper, completely halting vehicle momentum.",
-    counterStrategy: "Fire shotgun blasts into its glowing chest cavity and dodge its shoulder charge.",
-    lootDrop: "Heavy scrap engine parts, 150 Tickets",
-    milestoneSpawn: "45,000m - 95,000m"
-  },
-  {
-    id: "night-stalker",
-    name: "Night Stalker",
-    threatLevel: "Extreme",
-    health: 900,
-    speed: "Teleport / Blur",
-    dangerDescription: "Spawns only in pitch-black night fog. Snatches lone survivors who stray too far from bus headlights.",
-    counterStrategy: "Stay within the UV searchlight beam; UV light stuns and strips its shadow armor.",
-    lootDrop: "Shadow essence, 200 Tickets",
-    milestoneSpawn: "50,000m - 95,000m (Night Only)"
-  },
-  {
-    id: "highway-goliath",
-    name: "Highway Goliath (Barricade Boss)",
-    threatLevel: "Boss",
-    health: 6000,
-    speed: "Slow (3 m/s)",
-    dangerDescription: "Guards the 30,000m Highway Overpass. Throws crushed cars and slams the bridge deck.",
-    counterStrategy: "Use high ground on the bus roof, focus rifle fire on weak points, and keep the engine running.",
-    lootDrop: "V8 Engine Upgrade, 500 Tickets, Heavy Armor Plate",
-    milestoneSpawn: "30,000m Fixed Checkpoint"
-  },
-  {
-    id: "depot-abomination",
-    name: "Industrial Abomination",
-    threatLevel: "Boss",
-    health: 14000,
-    speed: "Medium (5 m/s)",
-    dangerDescription: "Guards the 60,000m Trainyard Depot. Summons endless waves of sprinters and spews acid clouds.",
-    counterStrategy: "Activate Necromancer thralls to pull aggro while gunners unleash Tommy guns and auto-turrets.",
-    lootDrop: "Military Gas Tank, 1,000 Tickets, Tier 3 Blueprints",
-    milestoneSpawn: "60,000m Fixed Checkpoint"
-  },
-  {
-    id: "final-overlord",
-    name: "The Final Overlord (Gatekeeper)",
-    threatLevel: "Boss",
-    health: 28000,
-    speed: "Aggressive (7 m/s)",
-    dangerDescription: "The apocalyptic titan blocking the entrance to the 95,000m Final Evacuation Bunker.",
-    counterStrategy: "All survivors must combine fire, deploy all pipe bombs, and ram the final blockade at max speed.",
-    lootDrop: "Victory Badge, 5,000 Tickets, Legendary Survivor Title",
-    milestoneSpawn: "95,000m The Final Stop"
+    health: null,
+    speed: "Empowered (permanent night)",
+    dangerDescription: "Nightmare Mode runs permanent night with six-player squads, meaning every nocturnal threat is active for the whole 95,000m route and recorded boss HP bars apply to Dracula, Anubis and Fred.",
+    counterStrategy: "Only enter Nightmare Mode with a full six-player squad, pre-planned fuel stops, and every window barricaded before the first nightfall.",
+    lootDrop: "Nightmare completion bragging rights and badge progression",
+    milestoneSpawn: "Nightmare Mode (whole route)",
+    source: "Verified Sept 2026: laststopguide.wiki (permanent night, six-player squads, recorded boss HP bars)."
   }
 ];
 
@@ -631,46 +646,54 @@ export const CODES_FAQS = [
   },
 ];
 
+/*
+ * Sept 2026 verification pass: the route's exact zone boundaries are not officially
+ * published. Documented landmarks are kept (first Gas Station ~3,000m and first
+ * Terminal ~12,000m per last-stop.org; checkpoint gates with the Key/rescue/loot
+ * loop per laststopguide.wiki; Dracula's Graveyard near Checkpoint III; the
+ * 95,000m Final Stop per Sportskeeda). Everything else is labelled as community
+ * estimates.
+ */
 export const MILESTONES_DATA: MilestoneItem[] = [
   {
-    distance: "0m - 10,000m",
-    name: "Suburban Outskirts",
-    environment: "Overgrown residential houses, small sheds, abandoned sedans.",
-    hazards: ["Shambling Walkers", "Lurking Crawlers", "Occasional night sprinters"],
-    recommendedEngine: "Stock Engine (Lv 1)",
-    keyRewards: ["Wood Planks", "Canned Food", "Starter Revolvers & Bandages"]
+    distance: "0m - 3,000m",
+    name: "Opening Road",
+    environment: "The stretch from spawn to the first Gas Station, where you learn the furnace loop.",
+    hazards: ["Standard infected hordes", "Furnace running dry if nobody fuels", "Getting left behind while looting"],
+    recommendedEngine: "Stock engine is fine — stockpile coal and wood",
+    keyRewards: ["Coal", "Wood planks", "Starter weapons and barricade materials"]
   },
   {
-    distance: "10,000m - 30,000m",
-    name: "Highway 95 Overpass",
-    environment: "Multi-lane highway jammed with crashed trucks and roadblock barricades.",
-    hazards: ["Sprinter packs", "Armored Riot Police", "Highway Goliath (30k Boss)"],
-    recommendedEngine: "Tuned Engine (Lv 2)",
-    keyRewards: ["Fuel Canisters", "Shotgun Shells", "Reinforced Cowcatcher Plate"]
+    distance: "3,000m - 12,000m",
+    name: "Road Stops & First Terminal",
+    environment: "Gas stations and roadside buildings lead up to the first Terminal around 12,000m.",
+    hazards: ["Infected packs around loot buildings", "Bus stalling during scavenging halts"],
+    recommendedEngine: "Stock engine; keep 2-3 fuel units buffered",
+    keyRewards: ["Sell loot at the Terminal", "Buy crafting recipes and classes", "Fuel restock"]
   },
   {
-    distance: "30,000m - 60,000m",
-    name: "Industrial Trainyard Ruins",
-    environment: "Rusted warehouses, chemical storage silos, freight train tracks.",
-    hazards: ["Corrosive Spitters", "Mutated Brutes", "Depot Abomination (60k Boss)"],
-    recommendedEngine: "Turbo Diesel (Lv 3)",
-    keyRewards: ["High-Grade Coal", "Tommy Guns", "Roof Auto-Turret Blueprints"]
+    distance: "12,000m - 60,000m",
+    name: "Checkpoint Gates & Graveyard",
+    environment: "Three checkpoint gates with a Key/rescue/loot loop between them; the Graveyard housing Dracula sits near Checkpoint III.",
+    hazards: ["Dracula's road grab and two-phase fight (Graveyard)", "Checkpoint key hunts", "Night hordes while stopped"],
+    recommendedEngine: "Keep fuel buffered; repair and re-arm at every gate",
+    keyRewards: ["Checkpoint progression", "Dracula badge (\"Defeat Dracula Boss!\")", "Gate loot"]
   },
   {
-    distance: "60,000m - 90,000m",
-    name: "The Dead Zone Wasteland",
-    environment: "Crumbling highway pillars surrounded by impenetrable toxic night fog.",
-    hazards: ["Night Stalkers (instant ambush)", "Berserk Hordes", "Acid rain damage"],
-    recommendedEngine: "Supercharged V8 (Lv 4-5)",
-    keyRewards: ["Military Canisters", "Hunting Rifles", "Titanium Hull Plating"]
+    distance: "60,000m - 95,000m",
+    name: "The Long Haul",
+    environment: "The community-reported back stretch of the route, including entrances to hidden content such as the Anubis dungeon.",
+    hazards: ["Optional dungeon encounters (Anubis / God Slayer badge)", "Ammo exhaustion before the final stop", "Night ambushes"],
+    recommendedEngine: "Carry every spare fuel unit — refuel opportunities thin out",
+    keyRewards: ["Anubis dungeon badge (\"God Slayer\")", "Rare dungeon loot"]
   },
   {
     distance: "95,000m",
-    name: "The Final Stop (Bunker Alpha)",
-    environment: "Fortified military gate and blast doors leading to safe subterranean shelter.",
-    hazards: ["The Final Overlord (28,000 HP)", "Endless Horde Wave"],
-    recommendedEngine: "Maxed Engine + Full Cowcatcher",
-    keyRewards: ["Endgame Victory Badge", "5,000 Tickets Bonus", "Survivor Mastery"]
+    name: "The Final Stop",
+    environment: "The end of the line at exactly 95,000m, where Fred awaits — cure him with the potion for the peaceful ending or fight him for the kill ending.",
+    hazards: ["Fred final encounter", "Choosing the ending (cure vs kill)", "Surviving the approach with a depleted squad"],
+    recommendedEngine: "Save one full fuel buffer for the final approach",
+    keyRewards: ["Cure or kill ending badge", "Run completion", "Class and recipe progress carries on"]
   }
 ];
 
@@ -685,11 +708,11 @@ export const FAQS = [
   },
   {
     q: "How does the bus fuel system work?",
-    a: "The bus operates automatically on rails but requires continuous fuel in its rear furnace. You can throw Fuel Canisters (800m range), Coal Chunks (400m range), Wood Planks (150m range), or Bio-Food (50m range) into the furnace. If fuel runs dry, the bus halts and zombies will quickly swarm and breach the doors."
+    a: "The bus operates automatically on rails but requires continuous fuel in its rear furnace. You can throw Gas Cans, Coal Chunks, Wood Planks, or even Scrap Food into the furnace (the Ghoul class gets no benefit from food). The exact per-item meter values are not officially published — community estimates put a Gas Can at roughly 800m and Coal at roughly 400m per unit — so keep 2-3 fuel items buffered at all times. If fuel runs dry, the bus halts and zombies will quickly swarm and breach the doors."
   },
   {
     q: "How far is the final stop in the game?",
-    a: "The final stop is located exactly 95,000 meters from the start. You will pass major milestone checkpoints at 10,000m, 30,000m (Highway Boss), 60,000m (Trainyard Boss), and face the Final Overlord at 95,000m."
+    a: "The final stop is located 95,000 meters from the start. Along the way you pass the first Gas Station (around 3,000m), the first Terminal (around 12,000m), three checkpoint gates with a Key/rescue/loot loop, the Graveyard where Dracula lurks near Checkpoint III, and finally Fred at the 95,000m Last Stop — where you choose between curing him or fighting him."
   },
   {
     q: "What happens if I get left behind by the bus?",

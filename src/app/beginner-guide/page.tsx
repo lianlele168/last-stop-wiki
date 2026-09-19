@@ -28,13 +28,13 @@ export default function BeginnerGuidePage() {
     },
     {
       num: "04",
-      title: "Board Up Windows Before 10,000m",
-      desc: "The Suburbs only spawn slow Walkers, but after 10,000m Highway Sprinters begin spawning. If side windows are unboarded, sprinters will leap through the glass directly into the passenger cabin."
+      title: "Board Up Windows Early",
+      desc: "Fast infected begin ambushing the bus once you leave the safe opening stretch. If side windows are unboarded, they will leap through the glass directly into the passenger cabin — always carry wood and use the Z key to barricade."
     },
     {
       num: "05",
-      title: "Never Scavenge at Night Without UV Light",
-      desc: "Night fog spawns Night Stalkers and empowers all infected with 2x movement speed. Unless you are playing the Vampire class, stay inside the bus cabin behind barricaded doors when the sun goes down."
+      title: "Never Scavenge Far From the Bus at Night",
+      desc: "Nighttime empowers the horde and shrinks your visibility to almost nothing. Unless you are playing the Vampire class, stay inside the bus cabin behind barricaded doors when the sun goes down."
     }
   ];
 
@@ -94,30 +94,30 @@ export default function BeginnerGuidePage() {
         {/* Step 2 */}
         <div className="space-y-3 border-l-2 border-emerald-500 pl-6 relative">
           <div className="absolute -left-2 top-0 w-3.5 h-3.5 rounded-full bg-emerald-500 shadow-glow-emerald" />
-          <div className="text-xs font-mono text-emerald-400 font-bold uppercase">Phase 2: Kilometers 10,000 - 30,000 (The Highway Blockade)</div>
-          <h3 className="text-lg font-bold text-white">Prepare Firearms for the Highway Goliath Boss</h3>
+          <div className="text-xs font-mono text-emerald-400 font-bold uppercase">Phase 2: Checkpoint Gates (Key, Rescue, Loot)</div>
+          <h3 className="text-lg font-bold text-white">Master the Checkpoint Gate Loop</h3>
           <p className="text-xs text-gray-300 leading-relaxed">
-            Armored riot zombies will begin appearing on the road. Do not waste melee attacks on their riot shields; flank them or use Shotguns. At 30,000m, the Highway Goliath will block the bridge. Station your best shooters on the roof and aim for his head while keeping the bus in low-gear forward motion.
+            The route features three checkpoint gates with a Key/rescue/loot loop between them. Send your fastest runner for keys while gunners hold the bus; never leave the engine unattended. Around Checkpoint III, watch the road near the Graveyard — Dracula grabs survivors straight off the road and forces a &quot;Fight Back&quot; struggle before his two-phase fight.
           </p>
         </div>
 
         {/* Step 3 */}
         <div className="space-y-3 border-l-2 border-purple-500 pl-6 relative">
           <div className="absolute -left-2 top-0 w-3.5 h-3.5 rounded-full bg-purple-500" />
-          <div className="text-xs font-mono text-purple-400 font-bold uppercase">Phase 3: Kilometers 30,000 - 60,000 (Industrial Ruins)</div>
-          <h3 className="text-lg font-bold text-white">Mount Roof Turrets & Eliminate Acid Spitters</h3>
+          <div className="text-xs font-mono text-purple-400 font-bold uppercase">Phase 3: Terminals & Resupply</div>
+          <h3 className="text-lg font-bold text-white">Sell Loot, Buy Recipes, Hoard Fuel</h3>
           <p className="text-xs text-gray-300 leading-relaxed">
-            Industrial complexes offer military-grade fuel canisters (+800m distance each!). Grab as many as you can carry in your backpack. Install the Roof LMG Turret (1,500 Tickets) to provide automatic suppression against acid spitters.
+            The first Terminal appears around 12,000m (the first Gas Station is around 3,000m). Sell everything that is not fuel, then reinvest in crafting recipes and class unlocks. Keep every Gas Can for the burner and drop fuel straight into the furnace — exact per-item meter values are not officially published, but community guides consistently rank Gas Cans first.
           </p>
         </div>
 
         {/* Step 4 */}
         <div className="space-y-3 border-l-2 border-red-500 pl-6 relative">
           <div className="absolute -left-2 top-0 w-3.5 h-3.5 rounded-full bg-red-500 shadow-glow-red" />
-          <div className="text-xs font-mono text-red-400 font-bold uppercase">Phase 4: Kilometers 60,000 - 95,000 (Dead Zone to Extraction)</div>
-          <h3 className="text-lg font-bold text-white">Full Throttle to Bunker Alpha</h3>
+          <div className="text-xs font-mono text-red-400 font-bold uppercase">Phase 4: The Final Stop (95,000m) — Cure or Kill Fred</div>
+          <h3 className="text-lg font-bold text-white">Decide Your Ending Before You Arrive</h3>
           <p className="text-xs text-gray-300 leading-relaxed">
-            The fog in the Dead Zone is lethal. Turn on UV searchlights to blind Night Stalkers. Feed all stored military fuel canisters into the furnace. When you arrive at the 95,000m military gate, eliminate the Final Overlord with Pipe Bombs to unlock the bunker doors and claim victory!
+            At the 95,000m Last Stop you face Fred, the game&apos;s final encounter. Preserve the cure potion through the whole run to unlock the peaceful Cure Fred ending, or go in armed to the teeth and defeat him for the kill ending. Either way, keep one full fuel buffer for the final approach so the bus is still moving when you get there.
           </p>
         </div>
       </section>

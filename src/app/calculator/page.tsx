@@ -137,6 +137,9 @@ export default function CalculatorPage() {
         <p className="text-gray-400 text-sm sm:text-base max-w-3xl">
           Refueling the bus furnace is the difference between reaching safety and getting swarmed in the dark. Input your squad&apos;s current stockpile to calculate projected range towards the <span className="text-amber-400 font-bold font-mono">95,000-meter</span> Final Stop.
         </p>
+        <p className="text-[11px] text-gray-500 font-mono leading-relaxed max-w-3xl border-l-2 border-emerald-500/40 pl-3">
+          Data verification (Sept 2026): the developer has not published official per-item fuel burn values. The ~800m / ~400m / ~150m / ~50m figures below are community estimates used for modelling; the fuel-type priority itself is confirmed by multiple guides.
+        </p>
       </div>
 
       {/* Quick Presets Bar */}
@@ -183,9 +186,9 @@ export default function CalculatorPage() {
               <div className="flex justify-between text-xs font-bold">
                 <span className="text-gray-200 flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                  Military Fuel Canisters (+800m each)
+                  Gas Cans (~800m each, est.)
                 </span>
-                <span className="font-mono text-amber-400 text-sm">{canisters} Canisters</span>
+                <span className="font-mono text-amber-400 text-sm">{canisters} Cans</span>
               </div>
               <input
                 type="range"
@@ -207,7 +210,7 @@ export default function CalculatorPage() {
               <div className="flex justify-between text-xs font-bold">
                 <span className="text-gray-200 flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-amber-400" />
-                  Refined Coal Chunks (+400m each)
+                  Coal Chunks (~400m each, est.)
                 </span>
                 <span className="font-mono text-amber-400 text-sm">{coal} Chunks</span>
               </div>
@@ -231,7 +234,7 @@ export default function CalculatorPage() {
               <div className="flex justify-between text-xs font-bold">
                 <span className="text-gray-200 flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-yellow-500" />
-                  Wood Planks (+150m each)
+                  Wood Planks (~150m each, est.)
                 </span>
                 <span className="font-mono text-amber-400 text-sm">{wood} Planks</span>
               </div>
@@ -255,7 +258,7 @@ export default function CalculatorPage() {
               <div className="flex justify-between text-xs font-bold">
                 <span className="text-gray-200 flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-gray-400" />
-                  Emergency Food Scraps (+50m each)
+                  Food Scraps (~50m each, est.)
                 </span>
                 <span className="font-mono text-amber-400 text-sm">{food} Scraps</span>
               </div>
@@ -399,7 +402,7 @@ export default function CalculatorPage() {
               <div className="text-[11px] text-gray-400 font-mono text-right">
                 {results.distanceRemaining === 0 ? (
                   <span className="text-emerald-400 font-bold flex items-center justify-end gap-1">
-                    <CheckCircle className="w-3.5 h-3.5" /> You have reached Bunker Alpha!
+                    <CheckCircle className="w-3.5 h-3.5" /> You have reached the Final Stop!
                   </span>
                 ) : (
                   <span>Remaining to Final Stop: {results.distanceRemaining.toLocaleString()}m</span>
@@ -458,7 +461,7 @@ export default function CalculatorPage() {
         <div>
           <h2 className="text-2xl font-black text-white">Fuel Types & Combustion Hierarchy</h2>
           <p className="text-gray-400 text-xs sm:text-sm mt-1">
-            Standard baseline distance and burn duration metrics across all combustible items found in Last Stop.
+            Confirmed fuel types ranked by community-observed efficiency. Burn durations and meter values are modelling estimates — no official figures exist.
           </p>
         </div>
 
@@ -477,11 +480,14 @@ export default function CalculatorPage() {
               </div>
               <h3 className="text-sm font-bold text-white">{item.name}</h3>
               <div className="text-2xl font-black text-amber-400 font-mono">
-                +{item.distanceBoostMeters}m
+                ~{item.distanceBoostMeters}m
               </div>
               <p className="text-[11px] text-gray-400 leading-relaxed">
                 Found in: {item.howToObtain}
               </p>
+              {item.source && (
+                <p className="text-[9px] text-emerald-500/80 font-mono leading-relaxed border-t border-white/5 pt-1.5">✓ {item.source}</p>
+              )}
             </div>
           ))}
         </div>

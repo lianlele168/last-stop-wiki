@@ -33,8 +33,8 @@ export default function BusUpgradesPage() {
         { level: "Level 1 (Stock Windows)", cost: "Free", effect: "Fragile glass, zombies shatter windows after 3 hits." },
         { level: "Level 2 (Welded Steel Bars)", cost: "600 Tickets", effect: "Prevents zombies from leaping through passenger windows." },
         { level: "Level 3 (Spiked Front Cowcatcher)", cost: "1,800 Tickets", effect: "Instantly kills standard Walkers upon impact; -15% ramming deceleration." },
-        { level: "Level 4 (Reinforced Hull Sheeting)", cost: "3,500 Tickets", effect: "Acid Spitter corrosive vomit deals 60% reduced damage to bus body." },
-        { level: "Level 5 (Titanium Ramming Battering-Ram)", cost: "7,000 Tickets", effect: "Can smash through Highway Goliath roadblock cars with zero hull damage." },
+        { level: "Level 4 (Reinforced Hull Sheeting)", cost: "3,500 Tickets", effect: "Reduces hull damage taken from corrosive and heavy attacks while the bus is swarmed." },
+        { level: "Level 5 (Titanium Ramming Battering-Ram)", cost: "7,000 Tickets", effect: "Smashes through roadblock cars and crashed vehicles with minimal hull damage." },
       ]
     },
     {
@@ -55,7 +55,7 @@ export default function BusUpgradesPage() {
       description: "Nighttime defense, furnace expansion, and squad convenience upgrades.",
       levels: [
         { level: "High-Beam Halogen Lights", cost: "500 Tickets", effect: "Doubles headlight cone distance for earlier obstacle warning." },
-        { level: "Roof UV Searchlight Rig", cost: "2,000 Tickets", effect: "UV radiation stuns Night Stalkers and removes their shadow invulnerability." },
+        { level: "Roof UV Searchlight Rig", cost: "2,000 Tickets", effect: "Massively extends night visibility for driving and scavenging — critical on Nightmare Mode's permanent night." },
         { level: "Extended Fuel Hopper", cost: "2,500 Tickets", effect: "Allows stacking up to 10 fuel items in furnace buffer queue." },
       ]
     }
@@ -124,16 +124,16 @@ export default function BusUpgradesPage() {
           <div className="p-5 rounded-xl bg-wasteland-950 border border-white/10 space-y-3">
             <div className="text-xs font-mono font-bold text-amber-400 uppercase">Phase 1 (0 - 15,000m)</div>
             <h3 className="text-base font-bold text-white">Engine Lv 2 + Window Bars</h3>
-            <p className="text-xs text-gray-400 leading-relaxed">
-              Prioritize fuel efficiency first to stretch early coal supplies. Barricade side windows to stop fast sprinters from ambushing survivors while refueling.
-            </p>
+          <p className="text-xs text-gray-400 leading-relaxed">
+            Prioritize fuel efficiency first to stretch early coal supplies. Barricade side windows to stop fast infected from ambushing survivors while refueling. (Ticket costs are community-reported estimates — no official price list exists.)
+          </p>
           </div>
 
           <div className="p-5 rounded-xl bg-wasteland-950 border border-white/10 space-y-3">
             <div className="text-xs font-mono font-bold text-emerald-400 uppercase">Phase 2 (15,000 - 45,000m)</div>
             <h3 className="text-base font-bold text-white">Spiked Cowcatcher + Roof LMG</h3>
             <p className="text-xs text-gray-400 leading-relaxed">
-              Before facing the Highway Goliath at 30,000m, you must have the spiked cowcatcher to ram abandoned roadblock cars and the roof LMG for automated crowd control.
+              In this middle stretch you hit the checkpoint gates and the Graveyard where Dracula waits near Checkpoint III. Get the spiked cowcatcher for ramming abandoned roadblock cars and the roof LMG for automated crowd control before committing to boss fights.
             </p>
           </div>
 
@@ -141,7 +141,7 @@ export default function BusUpgradesPage() {
             <div className="text-xs font-mono font-bold text-purple-400 uppercase">Phase 3 (45,000 - 95,000m)</div>
             <h3 className="text-base font-bold text-white">UV Rig + Engine Lv 4-5</h3>
             <p className="text-xs text-gray-400 leading-relaxed">
-              The Dead Zone fog spawns lethal Night Stalkers that can only be stunned by UV light. Max out your engine to sprint through the final 10,000m boss gauntlet.
+              The back stretch offers fewer resupply stops and hides the optional Anubis dungeon. Max out your engine, carry every spare fuel unit, and keep one full buffer reserved for the final approach to the 95,000m Last Stop.
             </p>
           </div>
         </div>

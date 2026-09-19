@@ -57,6 +57,9 @@ export default function ClassTierListPage() {
         <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
           Survivor classes rotate in the in-game shop every few hours. Use our tier list to evaluate which archetypes are worth spending your hard-earned <span className="text-amber-400 font-bold font-mono">Tickets</span> on, and compare any two classes head-to-head.
         </p>
+        <p className="text-[11px] text-gray-500 font-mono leading-relaxed border-l-2 border-emerald-500/40 pl-3">
+          Data verification (Sept 2026): class costs, star ratings and level bonuses cross-checked against the Sportskeeda Classes guide and the GameZebo tier list. Entries carry a source note where verified.
+        </p>
       </div>
 
       {/* Interactive Dual Class Comparison Panel */}
@@ -185,8 +188,8 @@ export default function ClassTierListPage() {
             activeTierFilter === 'ALL' ? 'bg-white text-black' : 'text-gray-400 hover:text-white'
           }`}
         >
-          ALL (12)
-        </button>
+            ALL ({CLASSES_DATA.length})
+          </button>
         {tiers.map(t => (
           <button
             key={t}
@@ -253,6 +256,9 @@ export default function ClassTierListPage() {
                             <li key={idx} className="truncate">• {b}</li>
                           ))}
                         </ul>
+                        {cls.source && (
+                          <div className="text-[9px] text-emerald-500/80 font-mono pt-1 border-t border-white/5 mt-1">✓ {cls.source}</div>
+                        )}
                       </div>
                     </div>
 

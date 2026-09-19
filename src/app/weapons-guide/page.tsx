@@ -33,7 +33,7 @@ export default function WeaponsGuidePage() {
       '@type': 'ListItem',
       position: index + 1,
       name: `${w.name} (${w.category})`,
-      description: `Damage: ${w.damage}, Range: ${w.range}, Tier: ${w.tier}`,
+      description: `Damage: ${w.damage ?? 'not documented'}, Range: ${w.range}, Tier: ${w.tier}`,
     })),
   };
 
@@ -54,7 +54,10 @@ export default function WeaponsGuidePage() {
           Weapons & Defense Database
         </h1>
         <p className="text-gray-400 text-sm sm:text-base leading-relaxed">
-          Surviving 95,000 meters requires balancing firepower with ammo conservation. Explore damage values, fire rates, optimal engagement ranges, and mounted turret upgrades.
+          Surviving 95,000 meters requires balancing firepower with ammo conservation. Explore weapon archetypes, fire rates, optimal engagement ranges, and mounted turret upgrades.
+        </p>
+        <p className="text-[11px] text-gray-500 font-mono leading-relaxed border-l-2 border-emerald-500/40 pl-3">
+          Data verification (Sept 2026): The Hidden Route has not published official per-hit damage numbers for any weapon, so damage shows &quot;Not documented&quot; rather than invented figures. Weapon archetypes and ammo types are community-reported.
         </p>
       </div>
 
@@ -90,7 +93,7 @@ export default function WeaponsGuidePage() {
               <div>
                 <h3 className="text-lg font-bold text-white">{wpn.name}</h3>
                 <div className="text-2xl font-black text-amber-400 font-mono mt-1">
-                  {wpn.damage} <span className="text-xs text-gray-400 font-normal">DMG per hit</span>
+                  {wpn.damage !== null ? wpn.damage : 'N/A'} <span className="text-xs text-gray-400 font-normal">{wpn.damage !== null ? 'DMG per hit' : '(not documented)'}</span>
                 </div>
               </div>
 
@@ -120,6 +123,9 @@ export default function WeaponsGuidePage() {
               <div className="text-xs text-gray-400 bg-white/5 p-3 rounded-lg">
                 <span className="font-bold text-amber-300 font-mono text-[10px] block uppercase mb-0.5">Tactical Application:</span>
                 {wpn.bestUse}
+                {wpn.source && (
+                  <div className="text-[9px] text-emerald-500/80 font-mono mt-1.5 border-t border-white/5 pt-1.5">✓ {wpn.source}</div>
+                )}
               </div>
             </div>
           </div>
@@ -148,7 +154,7 @@ export default function WeaponsGuidePage() {
           <div className="p-4 rounded-xl bg-wasteland-950 border border-white/5 space-y-1.5">
             <div className="text-amber-400 font-bold font-mono">3. Reserve Shotguns for Doors</div>
             <p className="text-gray-400 leading-relaxed text-[11px]">
-              When the bus door is breached by sprinters, point-blank shotgun blasts deal 180 AoE damage, clearing the exit instantly.
+              When the bus door is breached by sprinting infected, point-blank shotgun blasts clear the whole doorway cluster in one trigger pull, saving precious shells.
             </p>
           </div>
         </div>
