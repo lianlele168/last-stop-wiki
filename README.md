@@ -1,3 +1,5 @@
+> 🎮 **Live site:** [https://laststop.robloxwikihub.com](https://laststop.robloxwikihub.com) — interactive calculators, verified code lists, tier lists & guides.
+
 ﻿# 🚌 Last Stop Wiki & Interactive Database
 
 High-performance, Next.js 14 SSG community database and interactive toolkit for **Last Stop** on Roblox (developed by The Hidden Route).
