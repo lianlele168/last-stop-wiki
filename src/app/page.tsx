@@ -231,7 +231,7 @@ export default function HomePage() {
               <div>
                 <h3 className="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors flex items-center gap-2">
                   <span>Active Tickets Codes Hub</span>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">VERIFIED</span>
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">SOURCED</span>
                 </h3>
                 <p className="text-gray-400 text-xs mt-2 leading-relaxed">
                   1-click clipboard copy for FRED and UPDATE1. Get 750 free Tickets to immediately unlock S-Tier classes and bus upgrades.

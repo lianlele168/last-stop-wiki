@@ -49,7 +49,7 @@ const codeListSchema = {
     "@type": "ListItem",
     position: index + 1,
     name: `Last Stop Code: ${c.code}`,
-    description: `${c.reward} - Status: ${c.status} - Verified `,
+    description: `${c.reward} - Status: ${c.status} `,
   })),
 };
 

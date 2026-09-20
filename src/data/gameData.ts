@@ -121,7 +121,7 @@ export const CLASSES_DATA: ClassData[] = [
     ],
     pros: ["Creates passive defensive buffer around bus", "Scales exponentially against large hordes", "Thralls absorb boss aggro"],
     cons: ["Robux-exclusive unlock", "Thralls require line-of-sight command"],
-    source: "Verified Sept 2026: Sportskeeda Classes guide & GameZebo tier list (5 stars, 899 Robux, thrall scaling)."
+    source: "Checked Sept 2026: Sportskeeda Classes guide & GameZebo tier list (5 stars, 899 Robux, thrall scaling)."
   },
   {
     id: "ghoul",
@@ -140,7 +140,7 @@ export const CLASSES_DATA: ClassData[] = [
     ],
     pros: ["Near-unkillable while raging (up to 80% damage reduction)", "Fully self-sufficient — never needs food supplies", "Ranked the best class in the game by Sportskeeda"],
     cons: ["Most expensive Ticket class (18,000)", "Must keep feeding on corpses to sustain Hunger and Rage", "Rage playstyle rewards risky melee dives into hordes"],
-    source: "Verified Sept 2026: GameZebo tier list (Sep 9) full level table; Sportskeeda Classes guide (Sep 8) ranks Ghoul the best class; also covered by TechWiser and laststopmeta.com."
+    source: "Checked Sept 2026: GameZebo tier list (Sep 9) full level table; Sportskeeda Classes guide (Sep 8) ranks Ghoul the best class; also covered by TechWiser and laststopmeta.com."
   },
   {
     id: "vampire",
@@ -542,7 +542,7 @@ export const ENEMIES_DATA: EnemyData[] = [
     counterStrategy: "Mash out of the road grab via the Fight Back meter, then burn down his two phases with your best sustained firepower while teammates revive grabbed survivors.",
     lootDrop: "Boss defeat badge: \"Defeat Dracula Boss!\" (added Sept 5, 2026)",
     milestoneSpawn: "Graveyard, near Checkpoint III",
-    source: "Verified Sept 2026: laststopguide.wiki (9,000 HP, two phases, Graveyard) and Sportskeeda badges list (grab + Fight Back meter, Checkpoint III)."
+    source: "Checked Sept 2026: laststopguide.wiki (9,000 HP, two phases, Graveyard) and Sportskeeda badges list (grab + Fight Back meter, Checkpoint III)."
   },
   {
     id: "anubis",
@@ -554,7 +554,7 @@ export const ENEMIES_DATA: EnemyData[] = [
     counterStrategy: "Bring full ammo reserves and healing before entering the dungeon chamber — the encounter is optional, so a squad that is low on supplies should skip it.",
     lootDrop: "Badge: \"God Slayer\" (Anubis defeat objective)",
     milestoneSpawn: "Hidden dungeon (location varies)",
-    source: "Verified Sept 2026: laststopbus.wiki bosses page (God Slayer badge, dungeon timing caveat). HP not documented in any reliable source."
+    source: "Checked Sept 2026: laststopbus.wiki bosses page (God Slayer badge, dungeon timing caveat). HP not documented in any reliable source."
   },
   {
     id: "fred",
@@ -566,7 +566,7 @@ export const ENEMIES_DATA: EnemyData[] = [
     counterStrategy: "Decide your ending before the final stop. Preserve the cure potion if you want the Cure Fred ending; otherwise bring every stored weapon and explosive for the boss fight.",
     lootDrop: "Cure ending badge or kill ending badge (God Slayer-style objectives)",
     milestoneSpawn: "The Final Stop (95,000m)",
-    source: "Verified Sept 2026: laststopbus.wiki Endings page (cure-vs-defeat outcomes) and laststop-roblox.wiki Cure Fred guide. HP not officially documented (~5,500 HP reports are unverified)."
+    source: "Checked Sept 2026: laststopbus.wiki Endings page (cure-vs-defeat outcomes) and laststop-roblox.wiki Cure Fred guide. HP not officially documented (~5,500 HP reports are unverified)."
   },
   {
     id: "nightmare-horde",
@@ -578,7 +578,7 @@ export const ENEMIES_DATA: EnemyData[] = [
     counterStrategy: "Only enter Nightmare Mode with a full six-player squad, pre-planned fuel stops, and every window barricaded before the first nightfall.",
     lootDrop: "Nightmare completion bragging rights and badge progression",
     milestoneSpawn: "Nightmare Mode (whole route)",
-    source: "Verified Sept 2026: laststopguide.wiki (permanent night, six-player squads, recorded boss HP bars)."
+    source: "Checked Sept 2026: laststopguide.wiki (permanent night, six-player squads, recorded boss HP bars)."
   }
 ];
 
