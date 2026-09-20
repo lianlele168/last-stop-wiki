@@ -642,7 +642,7 @@ export const CODES_FAQS = [
   },
   {
     q: "Where do new Last Stop codes get posted?",
-    a: "The Hidden Route drops codes alongside major updates, bug fixes and community milestones rather than on a fixed schedule. The fastest official channels are the developer's Roblox group (The Hidden Route), their X account @HawkieDevRBX, and the YouTube channel @localModuled. The official Last Stop Discord has no dedicated codes channel, so announcements arrive scattered across general update posts — this page is re-checked daily so you do not have to trawl them.",
+    a: "The Hidden Route drops codes alongside major updates, bug fixes and community milestones rather than on a fixed schedule. The fastest official channels are the developer's Roblox group (The Hidden Route), their X account @HawkieDevRBX, and the YouTube channel @localModuled. The official Last Stop Discord has no dedicated codes channel, so announcements arrive scattered across general update posts — this page is re-checked against those sources so you do not have to trawl them.",
   },
 ];
 

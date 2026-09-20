@@ -13,7 +13,7 @@ export default function AuthorCard({
   authorName = 'Hlele',
   role = 'Editor',
   experience = 'AI-assisted research, human-reviewed',
-  patchVersion = 'Beta Update Verified',
+  patchVersion = 'Beta Update',
   lastUpdated = '',
   editorialNote = 'All fuel consumption curves, zombie DPS scaling, bus armor upgrade tiers, and furnace burn times are cross-checked against multiple community sources; any figure we could not independently confirm is explicitly labeled as unverified.',
 }: AuthorCardProps) {
@@ -28,7 +28,7 @@ export default function AuthorCard({
             <div className="flex items-center space-x-2">
               <span className="font-bold text-white text-sm sm:text-base">{authorName}</span>
               <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
-                ✓ Convoy Verified
+                Independent editorial
               </span>
             </div>
             <p className="text-xs text-amber-200/70 mt-0.5">

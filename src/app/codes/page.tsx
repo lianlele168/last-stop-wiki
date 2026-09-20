@@ -295,7 +295,7 @@ export default function CodesPage() {
         role="Editor"
         experience="AI-assisted research, human-reviewed"
         patchVersion="Checked against the beta build"
-        editorialNote="Every Last Stop code listed here has been redeemed in-game and its exact Ticket or Alien Token payout recorded. We also document the Level 5 redemption gate and the new-server caveat that most outlets skip, because those are the two reasons a working code looks broken."
+        editorialNote="Every Last Stop code listed here is cross-checked against the developer's official channels and community reports, and its reported Ticket or Alien Token payout is recorded. We also document the Level 5 redemption gate and the new-server caveat that most outlets skip, because those are the two reasons a working code looks broken."
       />
 
     </div>

@@ -61,7 +61,7 @@ export default function HomePage() {
                 authorName="Hlele"
                 role="Editor"
                 experience="AI-assisted research, human-reviewed"
-                patchVersion="Beta Update Verified"
+                patchVersion="Beta Update"
                 editorialNote="All fuel consumption curves, zombie DPS scaling, bus armor upgrade tiers, and furnace burn times are cross-checked against multiple community sources; any figure we could not independently confirm is explicitly labeled as unverified."
               />
 
