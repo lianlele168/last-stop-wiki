@@ -1,12 +1,16 @@
+import type { Metadata } from 'next';
 import React from 'react';
 import Link from 'next/link';
 import { Bus, Flame, Gift, Award, Shield, Wrench, Skull, BookOpen, ArrowRight, CheckCircle2, ChevronRight, Gauge, Radio, ShieldCheck } from 'lucide-react';
 import { GAME_INFO, CLASSES_DATA, CODES_LIST, FAQS } from '@/data/gameData';
 import AuthorCard from '@/components/AuthorCard';
 
-export const metadata = {
-  alternates: { canonical: 'https://laststop.robloxwikihub.com/' },
+export const metadata: Metadata = {
+  title: { absolute: 'Last Stop Wiki — Bus Upgrades, Classes, Codes & Fuel Calculator' },
+  description: 'Fan wiki for Roblox Last Stop: bus upgrade tree, class comparison, verified codes, weapons database and the fuel range simulator.',
+  alternates: { canonical: 'https://laststop.robloxwikihub.com' },
 };
+
 
 export default function HomePage() {
   const faqSchema = {
